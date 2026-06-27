@@ -1,39 +1,40 @@
-# Evidence Comment 模板
+# Evidence Comment Template
 
-## 状态
+## Status
 
 `ready-for-review` / `partial` / `blocked`
 
-## 这次完成了什么
+## One-Sentence Result
 
-- 
 
-## 证据在哪
+## What Changed
 
-| 证据 | 链接或位置 | 说明 |
+-
+
+## Evidence
+
+| Evidence | Link or path | What it proves |
 |---|---|---|
 |  |  |  |
 
-## 对照验收标准
+## Acceptance Check
 
-- [ ] 方向符合原需求。
-- [ ] 范围没有越界。
-- [ ] 交付物可查看、可运行或可复核。
-- [ ] 还差的部分已经写清楚。
+- [ ] Direction matches the source demand.
+- [ ] Scope stayed inside the task issue.
+- [ ] Deliverables are reviewable.
+- [ ] Missing work is listed.
 
-## 没做什么
+## Not Done
 
-- 
+-
 
-## 风险或不确定
+## Risks / Open Questions
 
-- 
+-
 
-## 下一步
+## Recommended Next Step
 
-我的建议：
-
-- close：
-- 继续拆：
-- 回到 Discussion：
-- 需要人拍板：
+- close:
+- continue:
+- split:
+- return to Discussion:

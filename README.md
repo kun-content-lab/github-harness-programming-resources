@@ -1,62 +1,111 @@
-# GitHub Harness Programming Resources
+# GitHub Harness Programming Starter Kit
 
-把 AI 工作从聊天窗口里捞出来，放进一个可约束、可追踪、可验收的 GitHub 工作台。
+This repo is a copy-and-use starter kit for running AI work through GitHub.
 
-这不是 GitHub 教程，也不是让你背 issue、PR、Discussion 的定义。这里整理的是一套最小可用的工作方法：先把需求聊清楚，再拆成任务，再把证据留在同一个系统里。
+It packages a small version of Kun's GitHub Harness workflow: project instructions, reusable Skills, GitHub templates, and operating checklists. The goal is practical: copy these files into your own repo, let your AI agent read them, and run work through Discussion, issue, PR, and evidence comments instead of scattered chat.
 
-## 你可以先复制这三件套
+## Quick Start
 
-| 文件 | 用途 |
-|---|---|
-| [`templates/discussion-demand-confirmation.md`](templates/discussion-demand-confirmation.md) | 用 Discussion 把需求聊清楚，最后让 AI 写一份需求确认 commit |
-| [`templates/task-issue.md`](templates/task-issue.md) | 把已经确认的需求拆成一个可执行、可验收的任务 |
-| [`templates/evidence-comment.md`](templates/evidence-comment.md) | 让 AI 在完成后交代改了什么、证据在哪、还差什么、下一步是什么 |
+### 1. Copy the kit into your repo
 
-把这三件套放在一起，就是一个最小的 Harness Programming，也就是一个最小的 Harness Engine。
+Copy these folders and files:
 
-模型在一个可约束的系统框架上工作，不需要你每一步都反复提醒。它会沿着需求、任务、证据、验收这条 loop 往前跑，人负责看方向、边界和证据。
+| Source | Put it in your repo | Why |
+|---|---|---|
+| [`prompts/AGENTS.example.md`](prompts/AGENTS.example.md) | `AGENTS.md` | Project-level instructions for your AI agent |
+| [`skills/github-harness-workflow/SKILL.md`](skills/github-harness-workflow/SKILL.md) | `.agents/skills/github-harness-workflow/SKILL.md` | The reusable workflow Skill |
+| [`skills/github-cognitive-surface-lite/SKILL.md`](skills/github-cognitive-surface-lite/SKILL.md) | `.agents/skills/github-cognitive-surface-lite/SKILL.md` | The issue/comment writing Skill |
+| [`templates/`](templates/) | `.github/` or your docs folder | Discussion, issue, PR, and evidence templates |
+| [`checklists/adoption-checklist.md`](checklists/adoption-checklist.md) | `docs/github-harness-checklist.md` | Setup checklist |
 
-## 适合什么场景
+You do not need to copy every file on day one. Start with `AGENTS.md`, the workflow Skill, and the three templates: demand Discussion, task issue, evidence comment.
 
-- 用 AI 做一个小产品、小网站、小工具。
-- 用 AI 整理资料库、选题库、研究库。
-- 用 AI 推进内容生产、项目管理、学习计划。
-- 任何需要多人或多轮 AI 协作、又怕聊天记录散掉的任务。
+### 2. Ask your AI agent to read the instructions
 
-## 最小 loop
+Use this prompt:
+
+```text
+Read AGENTS.md and .agents/skills/github-harness-workflow/SKILL.md.
+Then help me run this repo through the GitHub Harness workflow.
+Do not start implementation until we have a demand Discussion or a task issue.
+```
+
+### 3. Open the first demand Discussion
+
+Use [`templates/discussion-demand-confirmation.md`](templates/discussion-demand-confirmation.md).
+
+The Discussion is where requirements get clarified. It should end with an AI-written demand confirmation commit:
+
+```markdown
+## Demand confirmation commit
+
+- Target user:
+- First version goal:
+- In scope:
+- Out of scope:
+- Acceptance standard:
+- Open questions:
+- Suggested issues:
+```
+
+### 4. Split one task issue
+
+Use [`templates/task-issue.md`](templates/task-issue.md).
+
+The issue should be narrow enough that an AI agent can execute it, produce evidence, and stop for review.
+
+### 5. Require an evidence comment
+
+Use [`templates/evidence-comment.md`](templates/evidence-comment.md).
+
+The agent must say what changed, where the evidence is, what is not done, and what should happen next.
+
+## What This Kit Is
 
 ```mermaid
 flowchart LR
-  A["需求 Discussion"] --> B["AI 需求确认 commit"]
-  B --> C["任务 issue"]
-  C --> D["执行与变更"]
-  D --> E["证据 comment"]
-  E --> F["人验收方向、边界、证据、下一步"]
-  F --> C
+  A["Demand Discussion"] --> B["Demand confirmation commit"]
+  B --> C["Task issue"]
+  C --> D["PR or file change"]
+  D --> E["Evidence comment"]
+  E --> F["Human review"]
+  F --> G{"Next step"}
+  G -->|accepted| H["Close"]
+  G -->|more work| C
+  G -->|scope changed| A
 ```
 
-## 仓库内容
+GitHub becomes the control plane. The AI agent works inside a system where requirements, tasks, evidence, and review are linked.
 
-| 路径 | 内容 |
+## Repository Map
+
+| Path | What it gives you |
 |---|---|
-| [`docs/minimum-harness-engine.md`](docs/minimum-harness-engine.md) | 最小 Harness Engine 的讲法 |
-| [`docs/github-surfaces.md`](docs/github-surfaces.md) | GitHub 里每个 surface 该承担什么 |
-| [`docs/resource-map.md`](docs/resource-map.md) | 本期视频资源地图 |
-| [`examples/ai-resource-index-demo.md`](examples/ai-resource-index-demo.md) | AI 资料索引站示例 |
-| [`diagrams/minimum-harness-engine.mmd`](diagrams/minimum-harness-engine.mmd) | 可复制到 PPT 或 README 的 Mermaid 图 |
+| [`docs/how-it-works.md`](docs/how-it-works.md) | The GitHub Harness model |
+| [`docs/adoption-guide.md`](docs/adoption-guide.md) | How to install this kit in another repo |
+| [`docs/surface-map.md`](docs/surface-map.md) | What Discussion, issue, PR, comment, and board each do |
+| [`prompts/`](prompts/) | Public project instruction examples |
+| [`skills/`](skills/) | Copyable Skill files for AI agents |
+| [`workflows/`](workflows/) | Step-by-step operating loops |
+| [`templates/`](templates/) | Demand, task, PR, evidence, and review templates |
+| [`checklists/`](checklists/) | Adoption and boundary checks |
+| [`examples/`](examples/) | A small example project using the workflow |
 
-## 使用方式
+## What To Copy First
 
-1. 在你的项目里先开一个 Discussion，复制需求确认模板。
-2. 把目标、受众、第一版范围、不做什么、验收标准都聊清楚。
-3. 让 AI 在 Discussion 末尾写一份需求确认 commit。
-4. 根据这份 commit 拆出一个 task issue。
-5. AI 执行后，不要只说“做完了”，必须回一条 evidence comment。
-6. 你只验四件事：方向有没有跑偏，边界有没有越界，证据能不能看，下一步是不是清楚。
+If you want the smallest useful setup:
 
-## 公开边界
+1. `prompts/AGENTS.example.md`
+2. `skills/github-harness-workflow/SKILL.md`
+3. `templates/discussion-demand-confirmation.md`
+4. `templates/task-issue.md`
+5. `templates/evidence-comment.md`
 
-这个仓库只提供公开视频配套方法、模板和示例，不包含业务材料、账号配置、敏感凭据或个人工作区路径。
+That is enough to run the first loop.
+
+## Boundary
+
+This is a public starter kit. It contains reusable workflow instructions, templates, and examples. It does not contain private project material, credentials, personal workspace paths, or account-specific automation.
 
 ## License
 

@@ -1,28 +1,28 @@
-# 人工验收 Checklist
+# Human Review Checklist
 
-AI 交付以后，不要只看它说“完成了”。按这四件事验。
+Use this when an AI agent says work is ready.
 
-## 方向
+## Direction
 
-- [ ] 还在解决原始需求。
-- [ ] 没有变成另一个项目。
-- [ ] 目标用户没有被换掉。
+- [ ] The result still solves the confirmed demand.
+- [ ] The target user or owner did not change silently.
+- [ ] The task did not become a different project.
 
-## 边界
+## Boundary
 
-- [ ] 做了 issue 里要求做的事。
-- [ ] 没做 issue 明确不做的事。
-- [ ] 如果范围变化，已经回到 Discussion 或新开 issue。
+- [ ] The agent completed what the issue asked for.
+- [ ] The agent did not do work that was explicitly out of scope.
+- [ ] Scope changes were moved back to Discussion or split into a new issue.
 
-## 证据
+## Evidence
 
-- [ ] 有可打开的文件、链接、PR、截图、运行结果或 commit。
-- [ ] 证据能证明主要交付物存在。
-- [ ] 不是只靠自然语言宣称完成。
+- [ ] There is a file, PR, screenshot, command output, link, or commit to review.
+- [ ] The evidence proves the main deliverable exists.
+- [ ] Completion is not based only on the agent saying "done".
 
-## 下一步
+## Next Step
 
-- [ ] 可以 close。
-- [ ] 需要补证据。
-- [ ] 需要继续拆 issue。
-- [ ] 需要回到 Discussion 重新确认需求。
+- [ ] close
+- [ ] continue in same issue
+- [ ] split new issue
+- [ ] return to Discussion

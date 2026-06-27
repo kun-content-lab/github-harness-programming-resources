@@ -1,65 +1,67 @@
-# 需求确认 Discussion 模板
+# Demand Discussion Template
 
-## 需求原话
+Use this before implementation. The goal is to make requirements explicit enough to split into task issues.
 
-写下你现在想做的事情。可以很散，不需要一开始就结构完美。
+## Raw Demand
 
-## 目标用户
+Write the request in normal language. It can be rough.
 
-- 谁会用它：
-- 他们现在卡在哪里：
-- 他们为什么需要这个东西：
+## Target User
 
-## 第一版目标
+- Who is this for:
+- What are they trying to do:
+- What pain or constraint matters:
 
-- 第一版要解决的问题：
-- 第一版必须出现的内容或功能：
-- 第一版成功的样子：
+## First Version Goal
 
-## 本轮范围
+- What should version one accomplish:
+- What must be visible or usable:
+- What does success look like:
 
-- 这次要做：
-- 这次先不做：
-- 以后可能再做：
+## Scope
 
-## 内容和数据
+### In Scope
 
-- 需要哪些资料：
-- 每条资料需要哪些字段：
-- 来源怎么记录：
-- 质量怎么判断：
+-
 
-## 展示和交互
+### Out Of Scope
 
-- 用户进来先看到什么：
-- 用户最常用的操作是什么：
-- 哪些信息必须一眼能看懂：
+-
 
-## 验收标准
+### Later
 
-- 可以看见的结果：
-- 可以点击或检查的位置：
-- 可以证明完成的证据：
+-
 
-## 风险和未定问题
+## Inputs And Materials
 
-- 现在还没确定：
-- 可能会影响范围：
-- 需要人拍板：
+- Existing files:
+- Data or content:
+- External links:
+- Constraints:
 
-## 需求确认 commit
+## Acceptance Standard
 
-让 AI 在 Discussion 讨论到足够清楚后，补上这一段：
+- What can be opened, clicked, run, or reviewed:
+- What evidence proves it:
+- Who reviews it:
+
+## Open Questions
+
+- 
+
+## Demand Confirmation Commit
+
+Ask the AI agent to write this after the Discussion is clear:
 
 ```markdown
-## 需求确认 commit
+## Demand confirmation commit
 
-- 目标用户：
-- 第一版目标：
-- 本轮范围：
-- 明确不做：
-- 必要内容：
-- 验收标准：
-- 仍未确定：
-- 建议拆出的 issue：
+- Target user:
+- First version goal:
+- In scope:
+- Out of scope:
+- Required inputs:
+- Acceptance standard:
+- Open questions:
+- Suggested task issues:
 ```

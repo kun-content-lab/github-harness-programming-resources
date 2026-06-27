@@ -1,10 +1,10 @@
 flowchart LR
-  A["需求 Discussion"] --> B["AI 需求确认 commit"]
+  A["Demand Discussion"] --> B["Demand confirmation commit"]
   B --> C["Task issue"]
-  C --> D["执行 / 文件变更 / PR"]
+  C --> D["PR or file change"]
   D --> E["Evidence comment"]
-  E --> F["人工验收"]
-  F --> G{"下一步"}
-  G -->|通过| H["Close"]
-  G -->|继续| C
-  G -->|需求变化| A
+  E --> F["Human review"]
+  F --> G{"Next step"}
+  G -->|accepted| H["Close"]
+  G -->|more work| C
+  G -->|scope changed| A

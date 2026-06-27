@@ -1,52 +1,51 @@
-# Task Issue 模板
+# Task Issue Template
 
-## 任务目标
+## Goal
 
-这张 issue 要完成什么。
+What should this task complete?
 
-## 来源
+## Source
 
-- 来自哪个 Discussion：
-- 对应哪段需求确认 commit：
-- 相关材料或链接：
+- Discussion:
+- Demand confirmation commit:
+- Related issue or PR:
 
-## 范围
+## Scope
 
-### 本次要做
+### In Scope
 
-- 
+-
 
-### 本次不做
+### Out Of Scope
 
-- 
+-
 
-## 输入材料
+## Inputs
 
-| 材料 | 位置 | 用途 |
+| Input | Location | Why it matters |
 |---|---|---|
 |  |  |  |
 
-## 交付物
+## Deliverables
 
-| 交付物 | 验收位置 |
+| Deliverable | Review location |
 |---|---|
 |  |  |
 
-## 验收标准
+## Acceptance Criteria
 
-- [ ] 方向符合 Discussion 里的需求确认 commit。
-- [ ] 没有越过本 issue 的范围。
-- [ ] 交付物可以被打开、查看或运行。
-- [ ] Evidence comment 里写清楚证据和下一步。
+- [ ] The result matches the confirmed demand.
+- [ ] The work stays inside this issue scope.
+- [ ] Deliverables can be opened, reviewed, or run.
+- [ ] Evidence comment is posted before close.
 
-## 执行要求
+## Agent Instructions
 
-- 开始前先复述目标、范围和验收标准。
-- 如果发现需求不清楚，回到 Discussion 追问，不要直接硬做。
-- 完成后必须提交 evidence comment。
+- Restate goal, scope, acceptance, and evidence target before implementation.
+- If requirements are unclear, return to the Discussion.
+- If scope changes, split a new issue.
+- After execution, write an evidence comment.
 
-## 关闭判断
+## Close Condition
 
-- 满足验收标准：可以 close。
-- 证据不足：keep open，要求补证据。
-- 范围变化：回到 Discussion 或新开 issue。
+Close only when acceptance criteria are met and evidence is reviewable.

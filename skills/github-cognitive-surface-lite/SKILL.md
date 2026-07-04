@@ -43,6 +43,13 @@ Must include:
 - evidence requirement;
 - close condition.
 
+Layer by size:
+
+- `task` — one executable unit.
+- `parent` Epic — control surface; hang sub-issues as native sub-issues; `Refs`, never `Closes`.
+- `sub-task` — slice under a parent; `Closes` on completion.
+- `truth-source` — frozen standing brief; never claimed, never auto-closed.
+
 ## PR
 
 Must include:
@@ -55,6 +62,11 @@ Must include:
 - linked issue.
 
 ## Evidence Comment
+
+Two signals:
+
+- `completion-comment` (`verified`) — task done, ready to close.
+- `exploration-comment` (`exploration`) — recording a judgment only, not a completion.
 
 Must include:
 

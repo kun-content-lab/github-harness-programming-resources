@@ -35,6 +35,11 @@
 | [`templates/discussion-demand-confirmation.md`](templates/discussion-demand-confirmation.md) | `.github/DISCUSSION_TEMPLATE/demand-confirmation.md` | 需求确认 Discussion |
 | [`templates/task-issue.md`](templates/task-issue.md) | `.github/ISSUE_TEMPLATE/task.md` | 可执行任务 issue |
 | [`templates/evidence-comment.md`](templates/evidence-comment.md) | `.github/COMMENT_TEMPLATE/evidence-comment.md` | 完成证据 comment |
+| `.github/ISSUE_TEMPLATE/parent-task.md` | `.github/ISSUE_TEMPLATE/parent-task.md` | 父 Epic 控制面（挂 sub，Refs 不 Closes） |
+| `.github/ISSUE_TEMPLATE/sub-task.md` | `.github/ISSUE_TEMPLATE/sub-task.md` | 父 Epic 下执行单元（Closes） |
+| `.github/ISSUE_TEMPLATE/truth-source.md` | `.github/ISSUE_TEMPLATE/truth-source.md` | 冻结真理源（不进领取循环） |
+| `.github/COMMENT_TEMPLATE/completion-comment.md` | `.github/COMMENT_TEMPLATE/completion-comment.md` | 完成回写（verified） |
+| `.github/COMMENT_TEMPLATE/exploration-comment.md` | `.github/COMMENT_TEMPLATE/exploration-comment.md` | 探索回写（exploration，不 close） |
 
 ### 2. 让 AI 读取项目说明
 
@@ -78,6 +83,20 @@ AI 完成后必须用 [`templates/evidence-comment.md`](templates/evidence-comme
 - 风险是什么；
 - 下一步建议 close、continue、split 还是 return to Discussion。
 
+### 6. 内环自动化 + 标签集
+
+复制 `.github/workflows/` 三个 workflow 让内环自动跑：
+
+| Workflow | 作用 |
+|---|---|
+| `issue-opened-hint.yml` | issue 一开就贴分支命名提示；truth-source 贴「冻结勿领取」 |
+| `pr-merged-close-issue.yml` | PR 合 main 自动 close `Closes #` 引用的 issue；truth-source 守护不误关；中文 PR body 兼容；保留分支 |
+| `pr-issue-link-guard.yml` | PR 缺 `Closes/Refs` 软提醒（不阻断合并） |
+
+建这套标签（`prd` / `truth-source` / `parent-task` / `sub-task` / `task` / `phase-a` / `demo` / `frozen`），见 [`docs/labels.md`](docs/labels.md) 或照本仓 `.github/` 复制。
+
+> 💬 **启用 Discussions**：在 repo Settings → Features 勾选 Discussions，再在 Discussions 页建 category（如「需求确认 / Demand」）。category 必须在 UI 建，GitHub API 不可建。
+
 ## 工作流
 
 ![GitHub Harness loop](assets/workflow/github-harness-loop.svg)
@@ -104,6 +123,7 @@ flowchart LR
 | [`docs/surface-map.md`](docs/surface-map.md) | Discussion / issue / PR / comment / board 各自负责什么 |
 | [`docs/public-boundary.md`](docs/public-boundary.md) | 公开边界 |
 | [`docs/verification.md`](docs/verification.md) | 本仓公开前验证记录 |
+| [`.github/`](.github/) | 活模板（issue / PR / comment）+ 三个自动化 workflow + 标签 |
 | [`prompts/`](prompts/) | 项目级 Agent instructions 示例 |
 | [`skills/`](skills/) | 可复制的 Skill 文件 |
 | [`workflows/`](workflows/) | 可照着跑的流程 |
@@ -111,6 +131,17 @@ flowchart LR
 | [`checklists/`](checklists/) | 采用检查和公开边界检查 |
 | [`examples/`](examples/) | AI resource index demo |
 | [`assets/`](assets/) | README 视觉资产 |
+
+## 本仓活体（living loop）
+
+这个仓库自己用这套跑过一遍，不是空壳文件包。你可以照着下面这些 issue / PR 看完整闭环长啥样：
+
+- [#1 真理源 PRD](https://github.com/kun-content-lab/github-harness-programming-resources/issues/1) — 冻结产品定义（`truth-source`，不进领取循环）
+- [#2 父 Epic](https://github.com/kun-content-lab/github-harness-programming-resources/issues/2) — 挂 5 个原生 sub-issue，进度自动汇总 0/5
+- [SI-4 demo PR #9](https://github.com/kun-content-lab/github-harness-programming-resources/pull/9) — `feat/6-demo-loop` → `Closes #6` → 合 main → 自动 close（`[demo]` 冻结示例）
+- 端到端 walkthrough：[`examples/living-loop-walkthrough.md`](examples/living-loop-walkthrough.md)
+
+> 三层 issue + 两种 comment + 三个 workflow 的活体演示，全在本仓可见。
 
 ## 公开边界
 

@@ -1,5 +1,7 @@
 # Human Review Checklist
 
+> 📋 Teaching mirror. Pair with `.github/COMMENT_TEMPLATE/completion-comment.md` (the `verified` write-back) and the PR template's review-focus.
+
 Use this when an AI agent says work is ready.
 
 ## Direction

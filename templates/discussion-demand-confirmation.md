@@ -1,5 +1,7 @@
 # Demand Discussion Template
 
+> 📋 Teaching mirror. Live template: `.github/DISCUSSION_TEMPLATE/demand-confirmation.md`. Enable Discussions in repo Settings → Features (categories must be created in the UI; the API cannot create them).
+
 Use this before implementation. The goal is to make requirements explicit enough to split into task issues.
 
 ## Raw Demand

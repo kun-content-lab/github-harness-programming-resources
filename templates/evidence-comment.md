@@ -1,5 +1,7 @@
 # Evidence Comment Template
 
+> 📋 Teaching mirror. Two live signals: `verified` (completion) at `.github/COMMENT_TEMPLATE/completion-comment.md`; `exploration` (judgment only, not a completion) at `.github/COMMENT_TEMPLATE/exploration-comment.md`.
+
 ## Status
 
 `ready-for-review` / `partial` / `blocked`

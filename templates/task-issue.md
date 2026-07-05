@@ -1,5 +1,7 @@
 # Task Issue Template
 
+> 📋 Teaching mirror. Live templates: `task` at `.github/ISSUE_TEMPLATE/task.md`; also see `parent-task.md` / `sub-task.md` / `truth-source.md` for the three issue layers. GitHub uses the `.github/` ones natively; copy either.
+
 ## Goal
 
 What should this task complete?
@@ -49,3 +51,15 @@ What should this task complete?
 ## Close Condition
 
 Close only when acceptance criteria are met and evidence is reviewable.
+
+## Deletion-spec
+
+What this task added, and how to roll it back or remove it later:
+-
+
+## Layer (pick one)
+
+- `task` — one executable unit (default).
+- `sub-task` — slice under a parent Epic; PR uses `Closes #<sub>`.
+- `parent` Epic — control surface only; PR uses `Refs #<parent>`, never `Closes`.
+- `truth-source` — frozen brief; never claimed, never auto-closed.

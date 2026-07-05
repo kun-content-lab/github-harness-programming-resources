@@ -134,7 +134,7 @@ flowchart LR
 
 ## 本仓活体（living loop）
 
-这个仓库自己用这套跑过一遍，不是空壳文件包。你可以照着下面这些 issue / PR 看完整闭环长啥样：
+这个仓库自己用这套跑过一遍。你可以照着下面这些 issue / PR 看完整闭环长啥样：
 
 - [#1 真理源 PRD](https://github.com/kun-content-lab/github-harness-programming-resources/issues/1) — 冻结产品定义（`truth-source`，不进领取循环）
 - [#2 父 Epic](https://github.com/kun-content-lab/github-harness-programming-resources/issues/2) — 挂 5 个原生 sub-issue，进度自动汇总 0/5
@@ -143,9 +143,6 @@ flowchart LR
 
 > 三层 issue + 两种 comment + 三个 workflow 的活体演示，全在本仓可见。
 
-## 公开边界
-
-这个仓库只包含 public-safe 的 workflow、Skill 示例、prompt 示例、GitHub templates、checklists 和 demo。它不包含私有项目材料、凭据、个人工作区路径、私有 registry、账号专属自动化或未公开素材。
 
 ## Star History
 
